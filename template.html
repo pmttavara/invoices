@@ -1,0 +1,186 @@
+template :: #string HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Invoice PTT$invoice_number_string$</title>
+<style>
+  body {
+    font-family: "Calibri", "Helvetica", sans-serif;
+    color: #222;
+    margin: 60px;
+    font-size: 12pt;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    background: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    font-weight: bold;
+    border-bottom: 2px solid #555;
+  }
+
+  td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    vertical-align: top;
+  }
+
+  /* Header */
+  .header-table {
+    border: none;
+    margin-bottom: 40px;
+  }
+
+  .header-table td {
+    border: none;
+    padding: 0;
+    vertical-align: top;
+  }
+
+  .from {
+    width: 60%;
+  }
+
+  .invoice-block {
+    width: 40%;
+    text-align: right;
+  }
+
+  .from p {
+    margin: 2px 0;
+  }
+
+  .from strong {
+    font-size: 13pt;
+  }
+
+  h1 {
+    font-size: 28pt;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .invoice-details {
+    margin-top: 4px;
+  }
+
+  .invoice-details p {
+    margin: 2px 0;
+  }
+
+  .to {
+    margin-bottom: 40px;
+  }
+
+  .to p {
+    margin: 2px 0;
+  }
+
+  .to strong {
+    font-size: 13pt;
+  }
+
+  .amount {
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .total {
+    text-align: right;
+    font-size: 14pt;
+    font-weight: bold;
+    padding-top: 10px;
+  }
+
+  .notes {
+    font-style: italic;
+    color: #666;
+    font-size: 10pt;
+    margin-top: 30px;
+  }
+
+  .footer {
+    font-size: 9pt;
+    color: #888;
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  @page {
+    margin: 60px;
+  }
+</style>
+</head>
+<body>
+
+<table class="header-table">
+  <tr>
+    <td class="from">
+      <strong>$my_name$</strong><br>
+      <p>$my_addr$</p>
+      <p>$my_city$</p>
+      <p>$my_post$</p>
+    </td>
+    <td class="invoice-block">
+      <h1>INVOICE</h1>
+      <div class="invoice-details">
+        <p><strong>Date:</strong> $invoice_year$-$invoice_month$-$invoice_day$</p>
+        <p><strong>Invoice #:</strong> PTT$invoice_number_string$</p>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div class="to">
+  <strong>Bill To:</strong><br>
+  <p>$company$</p>
+  <p>$street_address$</p>
+  <p>$city$</p>
+  <p>$postal_code$</p>
+  <p><em>$business_number$</em></p>
+</div>
+
+<h2 style="margin-top:40px;">Services</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th style="width: 25%;">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        $hours_count$ hours:<br>
+        Software Testing and Development<br>
+        User Experience Design and Testing<br>
+        General Implementation Development<br>
+        <em>Detailed timesheet available upon request</em><br><br>
+        <strong>Work performed:</strong>
+        $start_month$ $start_day$, $start_year$ – $end_month$ $end_day$, $end_year$
+      </td>
+      <td class="amount">
+        GBP £$total_price$
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="total">Total Due: GBP £$total_price$</p>
+
+<p class="notes">This copy of this invoice (PTT$invoice_number_string$) voids and replaces all earlier copies of the same invoice.</p>
+
+<div class="footer">
+  <p>Thank you for your business.</p>
+</div>
+
+</body>
+</html>
+HTML

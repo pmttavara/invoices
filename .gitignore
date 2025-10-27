@@ -1,0 +1,5 @@
+/.build
+/.vs
+secrets.jai
+invoices.exe
+invoices.pdb
